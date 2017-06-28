@@ -27,8 +27,13 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class EarthquakeActivity extends AppCompatActivity {
-
+    /* Tag for the LOG messages */
     public static final String LOG_TAG = EarthquakeActivity.class.getName();
+
+    /* URL to query the USGS dataset for earthquake information */
+    private static final String USGS_REQUEST_URL =
+            "http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
