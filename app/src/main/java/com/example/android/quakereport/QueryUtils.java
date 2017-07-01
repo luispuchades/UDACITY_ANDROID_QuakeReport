@@ -57,6 +57,13 @@ public final class QueryUtils {
      */
     public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
 
+        // TODO: ERASE DELAY
+        /* try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } */
+
         // TODO: ERASE
         Log.i(LOG_TAG, "TEST: fetchEarthquakeData() called");
         // Create URL object

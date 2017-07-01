@@ -31,6 +31,7 @@ import java.util.Set;
 
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
@@ -122,6 +123,10 @@ public class EarthquakeActivity extends AppCompatActivity
 
         // Set empty state text to display "No earthquakes found."
         mEmptyStateTextView.setText(R.string.no_earthquakes);
+
+        // Hide loading indicator because the data has been loaded
+        View loadingIndicator = findViewById(R.id.loading_indicator);
+        loadingIndicator.setVisibility(View.GONE);
 
         // TODO: ERASE
         Log.i(LOG_TAG, "TEST: onLoadFinished() called");
