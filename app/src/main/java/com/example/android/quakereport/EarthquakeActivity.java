@@ -27,10 +27,11 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
-
+import android.widget.TextView;
 
 
 public class EarthquakeActivity extends AppCompatActivity
@@ -52,6 +53,9 @@ public class EarthquakeActivity extends AppCompatActivity
     /** Adapter for the list of earthquakes */
     private EarthquakeAdapter mAdapter;
 
+    /* Global variable for empty_view view  */
+    private TextView mEmptyStateTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO: ERASE
@@ -62,6 +66,8 @@ public class EarthquakeActivity extends AppCompatActivity
 
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
+        mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
+        earthquakeListView.setEmptyView(mEmptyStateTextView);
 
         // Create a new adapter that takes an empty list of earthquakes as input
         mAdapter = new EarthquakeAdapter(this, new ArrayList<Earthquake>());
@@ -113,6 +119,9 @@ public class EarthquakeActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
+
+        // Set empty state text to display "No earthquakes found."
+        mEmptyStateTextView.setText(R.string.no_earthquakes);
 
         // TODO: ERASE
         Log.i(LOG_TAG, "TEST: onLoadFinished() called");
