@@ -37,7 +37,7 @@ public class Earthquake {
     }
 
 
-     /* Methods for Earthquake */
+    /* Methods for Earthquake */
     /* ******************* */
 
     /**
